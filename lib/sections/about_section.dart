@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/timeline_bubble.dart';
+import '../widgets/section_header.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -62,7 +63,7 @@ class AboutSection extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFF00FFCC).withOpacity(0.5),
+                          color: const Color(0xFF00FFCC).withValues(alpha: 0.5),
                           blurRadius: 12,
                         ),
                       ],

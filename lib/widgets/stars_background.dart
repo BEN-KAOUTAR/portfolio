@@ -33,7 +33,7 @@ class StarsPainter extends CustomPainter {
       final double sineVal = sin(animationValue * 2 * pi * 5 * star.speed);
       final double alpha = (star.baseAlpha + sineVal * 0.35).clamp(0.05, 1.0);
 
-      paint.color = Colors.white.withOpacity(alpha);
+      paint.color = Colors.white.withValues(alpha: alpha);
 
       final double starX = star.x * size.width;
       final double starY =
@@ -41,7 +41,7 @@ class StarsPainter extends CustomPainter {
 
       if (star.size > 1.2 && alpha > 0.6) {
         final glowPaint = Paint()
-          ..color = const Color(0xFF00FFCC).withOpacity(alpha * 0.3)
+          ..color = const Color(0xFF00FFCC).withValues(alpha: alpha * 0.3)
           ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0);
         canvas.drawCircle(Offset(starX, starY), star.size * 2, glowPaint);
       }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/hover_widget.dart';
+import '../widgets/section_header.dart';
 
 
 class SkillsSection extends StatelessWidget {
@@ -61,18 +62,18 @@ class SkillsSection extends StatelessWidget {
                       transform: Matrix4.translationValues(0, isHovered ? -8 : 0, 0),
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0D0A24).withOpacity(0.6),
+                        color: const Color(0xFF0D0A24).withValues(alpha: 0.6),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
                           color: isHovered
                               ? const Color(0xFF00FFCC)
-                              : const Color(0xFF00FFCC).withOpacity(0.15),
+                              : const Color(0xFF00FFCC).withValues(alpha: 0.15),
                           width: isHovered ? 1.5 : 1,
                         ),
                         boxShadow: isHovered
                             ? [
                                 BoxShadow(
-                                  color: const Color(0xFF00FFCC).withOpacity(0.2),
+                                  color: const Color(0xFF00FFCC).withValues(alpha: 0.2),
                                   blurRadius: 30,
                                   spreadRadius: 2,
                                   offset: const Offset(0, 10),
@@ -80,7 +81,7 @@ class SkillsSection extends StatelessWidget {
                               ]
                             : [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
+                                  color: Colors.black.withValues(alpha: 0.2),
                                   blurRadius: 10,
                                   offset: const Offset(0, 5),
                                 )
@@ -95,10 +96,10 @@ class SkillsSection extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF00FFCC).withOpacity(0.1),
+                                  color: const Color(0xFF00FFCC).withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(
-                                    color: const Color(0xFF00FFCC).withOpacity(0.3),
+                                    color: const Color(0xFF00FFCC).withValues(alpha: 0.3),
                                   ),
                                 ),
                                 child: Icon(
@@ -122,7 +123,7 @@ class SkillsSection extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 18),
-                          Divider(color: Colors.white.withOpacity(0.1), thickness: 1),
+                          Divider(color: Colors.white.withValues(alpha: 0.1), thickness: 1),
                           const SizedBox(height: 16),
                           // Skills List
                           Expanded(
@@ -142,7 +143,7 @@ class SkillsSection extends StatelessWidget {
                                             child: Text(
                                               skill,
                                               style: TextStyle(
-                                                color: Colors.white.withOpacity(0.85),
+                                                color: Colors.white.withValues(alpha: 0.85),
                                                 fontSize: 14,
                                                 height: 1.4,
                                               ),

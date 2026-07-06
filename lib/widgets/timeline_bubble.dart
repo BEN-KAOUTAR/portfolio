@@ -27,7 +27,7 @@ class TimelineBubble extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               padding: const EdgeInsets.all(22),
               decoration: BoxDecoration(
-                color: const Color(0xFF0D0A24).withOpacity(0.45),
+                color: const Color(0xFF0D0A24).withValues(alpha: 0.45),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
                   color: isHovered
@@ -38,7 +38,7 @@ class TimelineBubble extends StatelessWidget {
                 boxShadow: isHovered
                     ? [
                         BoxShadow(
-                          color: const Color(0xFF00FFCC).withOpacity(0.2),
+                          color: const Color(0xFF00FFCC).withValues(alpha: 0.2),
                           blurRadius: 20,
                         )
                       ]

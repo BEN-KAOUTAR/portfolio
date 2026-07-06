@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/hover_widget.dart';
+import '../widgets/section_header.dart';
 
 
 class ContactSection extends StatefulWidget {
@@ -113,7 +114,7 @@ class _ContactSectionState extends State<ContactSection> {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: const Color(0xFF0D0A24).withOpacity(0.45),
+            color: const Color(0xFF0D0A24).withValues(alpha: 0.45),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isHovered
@@ -128,7 +129,7 @@ class _ContactSectionState extends State<ContactSection> {
                 height: 45,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFF00FFCC).withOpacity(0.1),
+                  color: const Color(0xFF00FFCC).withValues(alpha: 0.1),
                 ),
                 child: Icon(icon, color: const Color(0xFF00FFCC), size: 20),
               ),
@@ -158,7 +159,7 @@ class _ContactSectionState extends State<ContactSection> {
     return Container(
       padding: const EdgeInsets.all(35),
       decoration: BoxDecoration(
-        color: const Color(0xFF0D0A24).withOpacity(0.45),
+        color: const Color(0xFF0D0A24).withValues(alpha: 0.45),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: const Color(0x3300FFCC)),
       ),
@@ -202,7 +203,7 @@ class _ContactSectionState extends State<ContactSection> {
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: const TextStyle(color: Colors.white30, fontSize: 14),
-        fillColor: Colors.black.withOpacity(0.4),
+        fillColor: Colors.black.withValues(alpha: 0.4),
         filled: true,
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 16, vertical: 16),

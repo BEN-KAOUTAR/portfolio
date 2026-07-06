@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../widgets/hover_widget.dart';
-import '../widgets/wave_line_painter.dart';
+import '../widgets/section_header.dart';
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
@@ -117,18 +117,18 @@ class ProjectsSection extends StatelessWidget {
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0D0A24).withOpacity(0.6),
+                        color: const Color(0xFF0D0A24).withValues(alpha: 0.6),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
                           color: isHovered
                               ? accentColor
-                              : accentColor.withOpacity(0.25),
+                              : accentColor.withValues(alpha: 0.25),
                           width: isHovered ? 1.5 : 1,
                         ),
                         boxShadow: isHovered
                             ? [
                                 BoxShadow(
-                                  color: accentColor.withOpacity(0.25),
+                                  color: accentColor.withValues(alpha: 0.25),
                                   blurRadius: 30,
                                   spreadRadius: 2,
                                 )
@@ -149,8 +149,8 @@ class ProjectsSection extends StatelessWidget {
                               ),
                               gradient: LinearGradient(
                                 colors: [
-                                  accentColor.withOpacity(isHovered ? 0.25 : 0.1),
-                                  accentColor.withOpacity(isHovered ? 0.05 : 0.02),
+                                  accentColor.withValues(alpha: isHovered ? 0.25 : 0.1),
+                                  accentColor.withValues(alpha: isHovered ? 0.05 : 0.02),
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -177,7 +177,7 @@ class ProjectsSection extends StatelessWidget {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 12, vertical: 4),
                                     decoration: BoxDecoration(
-                                      color: accentColor.withOpacity(0.15),
+                                      color: accentColor.withValues(alpha: 0.15),
                                       borderRadius: BorderRadius.circular(20),
                                       border: Border.all(color: accentColor, width: 1),
                                     ),
@@ -200,7 +200,7 @@ class ProjectsSection extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10, vertical: 4),
                                       decoration: BoxDecoration(
-                                        color: Colors.orange.withOpacity(0.2),
+                                        color: Colors.orange.withValues(alpha: 0.2),
                                         borderRadius: BorderRadius.circular(20),
                                         border: Border.all(
                                             color: Colors.orange, width: 1),
@@ -259,15 +259,15 @@ class ProjectsSection extends StatelessWidget {
                                                           horizontal: 8,
                                                           vertical: 3),
                                                   decoration: BoxDecoration(
-                                                    color: accentColor.withOpacity(0.08),
+                                                    color: accentColor.withValues(alpha: 0.08),
                                                     borderRadius:
                                                         BorderRadius.circular(6),
                                                     border: Border.all(
-                                                        color: accentColor.withOpacity(0.3)),
+                                                        color: accentColor.withValues(alpha: 0.3)),
                                                   ),
                                                   child: Text(tech,
                                                       style: TextStyle(
-                                                          color: accentColor.withOpacity(0.8),
+                                                          color: accentColor.withValues(alpha: 0.8),
                                                           fontSize: 10,
                                                           fontWeight: FontWeight.w600)),
                                                 ))
@@ -305,7 +305,7 @@ class ProjectsSection extends StatelessWidget {
                                         Text(
                                           'In development...',
                                           style: TextStyle(
-                                            color: Colors.orange.withOpacity(0.7),
+                                            color: Colors.orange.withValues(alpha: 0.7),
                                             fontSize: 12,
                                             fontStyle: FontStyle.italic,
                                           ),
@@ -345,15 +345,15 @@ class ProjectsSection extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: isHovered ? color.withOpacity(0.2) : Colors.transparent,
+              color: isHovered ? color.withValues(alpha: 0.2) : Colors.transparent,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: isHovered ? color : color.withOpacity(0.4),
+                color: isHovered ? color : color.withValues(alpha: 0.4),
               ),
               boxShadow: isHovered
                   ? [
                       BoxShadow(
-                        color: color.withOpacity(0.3),
+                        color: color.withValues(alpha: 0.3),
                         blurRadius: 10,
                       )
                     ]

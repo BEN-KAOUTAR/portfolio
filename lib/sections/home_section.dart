@@ -30,7 +30,7 @@ class HeroProfileImage extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF00FFCC).withOpacity(isHovered ? 0.8 : 0.4),
+                    color: const Color(0xFF00FFCC).withValues(alpha: isHovered ? 0.8 : 0.4),
                     blurRadius: isHovered ? 60 : 40,
                     spreadRadius: isHovered ? 10 : 5,
                   )
@@ -92,7 +92,7 @@ Widget buildSocialIcon(dynamic icon, String tooltip, String url) {
                   boxShadow: isHovered
                       ? [
                           BoxShadow(
-                            color: const Color(0xFF00FFCC).withOpacity(0.6),
+                            color: const Color(0xFF00FFCC).withValues(alpha: 0.6),
                             blurRadius: 15,
                           )
                         ]
@@ -208,7 +208,7 @@ class HomeSection extends StatelessWidget {
                           vertical: mobile ? 14 : 18,
                         ),
                         decoration: BoxDecoration(
-                          color: isHovered ? const Color(0xFF00FFCC).withOpacity(0.1) : Colors.transparent,
+                          color: isHovered ? const Color(0xFF00FFCC).withValues(alpha: 0.1) : Colors.transparent,
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(
                             color: const Color(0xFF00FFCC),
@@ -217,7 +217,7 @@ class HomeSection extends StatelessWidget {
                           boxShadow: isHovered
                               ? [
                                   BoxShadow(
-                                    color: const Color(0xFF00FFCC).withOpacity(0.6),
+                                    color: const Color(0xFF00FFCC).withValues(alpha: 0.6),
                                     blurRadius: 20,
                                     spreadRadius: 2,
                                   )

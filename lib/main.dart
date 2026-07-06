@@ -209,13 +209,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
       height: isMobile ? 80 : 100,
       padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 60),
       decoration: BoxDecoration(
-        color: const Color(0xFF030014).withOpacity(0.9),
+        color: const Color(0xFF030014).withValues(alpha: 0.9),
         border: const Border(
           bottom: BorderSide(color: Color(0x1A00FFCC)),
         ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF00FFCC).withOpacity(0.05),
+            color: const Color(0xFF00FFCC).withValues(alpha: 0.05),
             blurRadius: 20,
           ),
         ],
@@ -231,12 +231,12 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                 height: 40,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF00FFCC).withOpacity(0.1),
+                  color: const Color(0xFF00FFCC).withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                   border: Border.all(color: const Color(0xFF00FFCC), width: 2),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF00FFCC).withOpacity(0.5),
+                      color: const Color(0xFF00FFCC).withValues(alpha: 0.5),
                       blurRadius: 12,
                       spreadRadius: 2,
                     )
@@ -261,7 +261,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                   color: Colors.white,
                   shadows: [
                     Shadow(
-                      color: const Color(0xFF00FFCC).withOpacity(0.3),
+                      color: const Color(0xFF00FFCC).withValues(alpha: 0.3),
                       blurRadius: 10,
                     )
                   ]
@@ -308,12 +308,12 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                 padding: EdgeInsets.symmetric(horizontal: isMobile ? 12 : 20, vertical: 8),
                 decoration: BoxDecoration(
                   color: isHovered 
-                      ? const Color(0xFF00FFCC).withOpacity(0.15) 
+                      ? const Color(0xFF00FFCC).withValues(alpha: 0.15) 
                       : Colors.transparent,
                   borderRadius: isHovered ? BorderRadius.circular(20) : BorderRadius.circular(0),
                   border: isHovered 
                       ? Border.all(
-                          color: const Color(0xFF00FFCC).withOpacity(0.5), 
+                          color: const Color(0xFF00FFCC).withValues(alpha: 0.5), 
                           width: 1,
                         ) 
                       : Border(
@@ -325,7 +325,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                   boxShadow: isHovered
                       ? [
                           BoxShadow(
-                            color: const Color(0xFF00FFCC).withOpacity(0.3),
+                            color: const Color(0xFF00FFCC).withValues(alpha: 0.3),
                             blurRadius: 10,
                             spreadRadius: 1,
                           )
@@ -354,62 +354,198 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
   // ── Mobile Drawer ────────────────────────────────────────────────────────────
   Widget _buildDrawer(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xFF0D0A24),
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          DrawerHeader(
-            decoration: const BoxDecoration(color: Color(0xFF030014)),
-            child: Center(
-              child: RichText(
-                text: const TextSpan(
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 8,
-                      color: Colors.white),
+      backgroundColor: const Color(0xFF030014),
+      child: Container(
+        decoration: BoxDecoration(
+          border: const Border(
+            left: BorderSide(color: Color(0x3300FFCC), width: 1),
+          ),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              const Color(0xFF030014),
+              const Color(0xFF0D0A24).withValues(alpha: 0.8),
+              const Color(0xFF030014),
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Drawer Header / Brand
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 24, left: 24, right: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextSpan(text: 'B '),
-                    TextSpan(
-                        text: 'E',
-                        style: TextStyle(color: Color(0xFF00FFCC))),
-                    TextSpan(text: ' N'),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 42,
+                          height: 42,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF00FFCC).withValues(alpha: 0.1),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: const Color(0xFF00FFCC), width: 2),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0xFF00FFCC).withValues(alpha: 0.3),
+                                blurRadius: 10,
+                              )
+                            ]
+                          ),
+                          child: const Text(
+                            'B',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF00FFCC),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        const Text(
+                          'B E N',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 4,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.close, color: Colors.white70),
+                      onPressed: () => Navigator.pop(context),
+                    ),
                   ],
                 ),
               ),
-            ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: Divider(color: Color(0x1F00FFCC), height: 1),
+              ),
+              const SizedBox(height: 20),
+              // Menu Items
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  children: [
+                    _buildDrawerItem('Home', Icons.home_outlined, 'Home', () {
+                      Navigator.pop(context);
+                      _scrollToSection(_homeKey);
+                    }),
+                    _buildDrawerItem('About Me', Icons.person_outline, 'About Me', () {
+                      Navigator.pop(context);
+                      _scrollToSection(_aboutKey);
+                    }),
+                    _buildDrawerItem('Skills', Icons.psychology_outlined, 'Skills', () {
+                      Navigator.pop(context);
+                      _scrollToSection(_skillsKey);
+                    }),
+                    _buildDrawerItem('Projects', Icons.palette_outlined, 'Projects', () {
+                      Navigator.pop(context);
+                      _scrollToSection(_projectsKey);
+                    }),
+                    _buildDrawerItem('Contact', Icons.mail_outline, 'Contact', () {
+                      Navigator.pop(context);
+                      _scrollToSection(_contactKey);
+                    }),
+                  ],
+                ),
+              ),
+              // Social & bottom info
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30, left: 24, right: 24, top: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Kaoutar Ben Hettouch',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w600, letterSpacing: 0.5),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      'Digital Developer Portfolio',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: const Color(0xFF00FFCC).withValues(alpha: 0.8), fontSize: 11, fontWeight: FontWeight.w500, letterSpacing: 0.5),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          _buildDrawerItem('Home', () {
-            Navigator.pop(context);
-            _scrollToSection(_homeKey);
-          }),
-          _buildDrawerItem('About Me', () {
-            Navigator.pop(context);
-            _scrollToSection(_aboutKey);
-          }),
-          _buildDrawerItem('Skills', () {
-            Navigator.pop(context);
-            _scrollToSection(_skillsKey);
-          }),
-          _buildDrawerItem('Projects', () {
-            Navigator.pop(context);
-            _scrollToSection(_projectsKey);
-          }),
-          _buildDrawerItem('Contact', () {
-            Navigator.pop(context);
-            _scrollToSection(_contactKey);
-          }),
-        ],
+        ),
       ),
     );
   }
 
-  Widget _buildDrawerItem(String title, VoidCallback onTap) {
-    return ListTile(
-      title: Text(title,
-          style: const TextStyle(color: Colors.white, fontSize: 18)),
-      trailing: const Icon(Icons.chevron_right, color: Color(0xFF00FFCC)),
-      onTap: onTap,
+  Widget _buildDrawerItem(String title, IconData icon, String sectionName, VoidCallback onTap) {
+    final bool isActive = _activeSection == sectionName;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: HoverWidget(
+        builder: (isHovered) {
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            decoration: BoxDecoration(
+              color: isActive
+                  ? const Color(0xFF00FFCC).withValues(alpha: 0.15)
+                  : isHovered
+                      ? const Color(0xFF00FFCC).withValues(alpha: 0.05)
+                      : Colors.transparent,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: isActive
+                    ? const Color(0xFF00FFCC)
+                    : isHovered
+                        ? const Color(0xFF00FFCC).withValues(alpha: 0.3)
+                        : Colors.transparent,
+                width: 1.5,
+              ),
+              boxShadow: isActive
+                  ? [
+                      BoxShadow(
+                        color: const Color(0xFF00FFCC).withValues(alpha: 0.1),
+                        blurRadius: 8,
+                        spreadRadius: 1,
+                      )
+                    ]
+                  : [],
+            ),
+            child: ListTile(
+              leading: Icon(
+                icon,
+                color: isActive ? const Color(0xFF00FFCC) : Colors.white70,
+              ),
+              title: Text(
+                title,
+                style: TextStyle(
+                  color: isActive ? const Color(0xFF00FFCC) : Colors.white,
+                  fontSize: 16,
+                  fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
+                  letterSpacing: 0.5,
+                ),
+              ),
+              trailing: Icon(
+                Icons.chevron_right_rounded,
+                color: isActive ? const Color(0xFF00FFCC) : Colors.white30,
+              ),
+              onTap: onTap,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 
