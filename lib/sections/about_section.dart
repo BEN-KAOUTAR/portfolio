@@ -10,22 +10,27 @@ class AboutSection extends StatelessWidget {
     {
       'title': 'Personal Background',
       'body':
-          'Hello! I am Kaoutar Ben Hettouch, a passionate digital developer and I am 20 years old. I study at CMC Agadir, where I pursue my education in digital development, specializing in Mobile Application design.'
+          'Hello! I am Kaoutar Ben Hettouch, a mobile application developer with a strong passion for mobile technologies. I graduated in 2026 with a Specialized Technician degree in Digital Development (Mobile Applications) from the Cité des Métiers et des Compétences (CMC), Agadir.'
     },
     {
-      'title': 'Interests & Hobbies',
+      'title': 'Technical Foundation',
       'body':
-          'In my free time, I engage in a variety of hobbies that recharge my energy, such as reading novels, especially fantasy novels, which I am passionate about, in addition to watching movies.'
+          'I have built a solid foundation in Android development using Kotlin as well as cross-platform development with Flutter. Throughout my training, I completed several practical projects that strengthened my analytical thinking, attention to detail, and ability to work independently.'
     },
     {
-      'title': 'Future Aims',
+      'title': 'Professional Profile',
       'body':
-          'I am excited about the future of web and mobile development and look forward to applying my skills in real-world projects. As I continue my education at CMC Agadir, I am eager to collaborate, learn from others, and grow to become a leading digital developer.'
+          'I am a motivated and dedicated developer who is eager to strengthen my technical skills through real-world projects. I am curious, adaptable, and enjoy working in collaborative environments. I quickly adapt to new challenges and am ready to contribute effectively to software development teams.'
     },
     {
       'title': 'Education & Training',
       'body':
-          'Currently pursuing a Specialized Technician degree in Digital Development (Mobile Apps) at Cité des Métiers et des Compétences, Agadir (2024-2026). Previously earned a Physics Baccalaureate with Honors in 2024.'
+          '• 2026: Specialized Technician Degree in Digital Development (Mobile Applications), Cité des Métiers et des Compétences (CMC), Agadir.\n• 2024: Physics Baccalaureate with Honors.'
+    },
+    {
+      'title': 'Interests & Hobbies',
+      'body':
+          'In my free time, I enjoy activities that help me relax and stay inspired, such as reading novels—especially fantasy literature—and watching movies.'
     },
   ];
 

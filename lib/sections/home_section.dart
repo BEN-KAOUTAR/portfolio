@@ -168,7 +168,7 @@ class HomeSection extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              "I specialize in Mobile Application Development (Flutter & Kotlin) and creating responsive, premium web applications. Currently studying at CMC Agadir, focusing on modern software engineering and cloud-connected user experiences.",
+              "I specialize in Mobile Application Development (Flutter & Kotlin) and hold a Specialized Technician degree in Digital Development (Mobile Applications option) from CMC Agadir. I build premium, high-performance applications with a focus on analytical precision, rigour, and seamless user experiences.",
               textAlign: mobile ? TextAlign.center : TextAlign.start,
               style: TextStyle(
                 fontSize: subSize,
