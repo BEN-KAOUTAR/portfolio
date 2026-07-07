@@ -38,8 +38,8 @@ class ProjectsSection extends StatelessWidget {
       'emoji': '🎾',
       'logo': 'assets/courtkeeper_logo.png',
       'images': [
-        'assets/courtkeeper_1.png',
         'assets/courtkeeper_2.png',
+        'assets/courtkeeper_1.png',
         'assets/courtkeeper_3.png',
       ],
       'desc':
@@ -66,25 +66,38 @@ class ProjectsSection extends StatelessWidget {
       'status': 'done',
     },
     {
-      'title': 'Touristique Agadir',
-      'emoji': '🏖️',
-      'logo': '',
-      'images': <String>[],
+      'title': 'Galerie Touristique',
+      'emoji': '🌍',
+      'logo': 'assets/galerie_logo.png',
+      'images': [
+        'assets/galerie_1.png',
+        'assets/galerie_2.png',
+        'assets/galerie_3.png',
+        'assets/galerie_4.png',
+        'assets/galerie_5.png',
+        'assets/galerie_6.png',
+        'assets/galerie_7.png',
+        'assets/galerie_8.png',
+        'assets/galerie_9.png',
+      ],
       'desc':
-          'A tourism app for visitors to Agadir, Morocco. Features interactive maps, local attraction guides, ratings, category filtering, and offline-ready content for an immersive travel experience.',
+          'An Android guide and itinerary planner that displays destinations, hotel selections, real-time cost estimations, and integrates Gemini AI travel tips.',
       'longDesc':
-          'A tourist exploration application tailored for Agadir, Morocco. It offers maps, local attraction guides, rating metrics, filtering options, and offline functionalities to ensure an optimal travel companion experience.',
+          'Galerie Touristique is a native Android guide app designed for travellers. It serves as an interactive planner allowing users to organize visits, estimate hotel costs in real-time, view weather/ideal visiting times, and get curated AI recommendations (via Gemini) for local hidden gems.',
       'features': [
-        'Interactive Google Maps navigation.',
-        'Offline-capable tourist destination profiles.',
-        'Category-based sorting and filtering (Beaches, Restaurants, Historical Sites).',
-        'User review and rating aggregation.'
+        'Assistance IA (Gemini) : Astuces exclusives, meilleurs moments de visite et secrets locaux ("Hidden Gems") générés pour chaque destination.',
+        'Améliorations Récentes : Correction complète du thème (texte invisible), rendu moderne des Pill Indicators (vert/gris) et nettoyage de ressources.',
+        'Système de Réservation Interactif avec calcul du prix total en temps réel (hôtels, guides et voyageurs).',
+        'Accueil avec carrousel dynamique (Top Picks), indicateurs animés et liste complète des villes.',
+        'Authentification sécurisée avec stockage local des préférences et gestion complète du profil.',
+        'Gestion des voyages active, en attente ou annulée dans "Mes Visites" avec modification facile.',
+        'Actions rapides : Appel/SMS au support, partage et géolocalisation sur Google Maps.'
       ],
       'tag': 'Kotlin',
-      'color': 0xFFFF9800,
-      'tech': ['Kotlin', 'Google Maps', 'Firebase', 'Material 3'],
-      'apk': '',
-      'github': 'https://github.com/BEN-KAOUTAR',
+      'color': 0xFF2196F3,
+      'tech': ['Kotlin', 'ViewPager2', 'Glide', 'ViewBinding', 'SharedPreferences'],
+      'apk': 'galerie_touristique.apk',
+      'github': 'https://github.com/BEN-KAOUTAR/galerietouristique',
       'web': '',
       'status': 'done',
     },
@@ -180,7 +193,7 @@ class ProjectsSection extends StatelessWidget {
                 crossAxisCount: cols,
                 crossAxisSpacing: 28,
                 mainAxisSpacing: 28,
-                mainAxisExtent: 460,
+                mainAxisExtent: 425,
               ),
               itemCount: _projects.length,
               itemBuilder: (context, index) {
@@ -241,10 +254,32 @@ class ProjectsSection extends StatelessWidget {
                                     scale: isHovered ? 1.15 : 1.0,
                                     duration: const Duration(milliseconds: 300),
                                     curve: Curves.easeOutBack,
-                                    child: Text(
-                                      project['emoji'] as String,
-                                      style: const TextStyle(fontSize: 60),
-                                    ),
+                                    child: project['logo'] != null && (project['logo'] as String).isNotEmpty
+                                        ? Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(16),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: accentColor.withValues(alpha: 0.3),
+                                                  blurRadius: 15,
+                                                  spreadRadius: 2,
+                                                )
+                                              ],
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(16),
+                                              child: Image.asset(
+                                                project['logo'] as String,
+                                                width: 80,
+                                                height: 80,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          )
+                                        : Text(
+                                            project['emoji'] as String,
+                                            style: const TextStyle(fontSize: 60),
+                                          ),
                                   ),
                                 ),
                                 // Tag badge
@@ -582,23 +617,47 @@ class ProjectsSection extends StatelessWidget {
 
   Widget _buildImageCarousel(List<String> images, Color accentColor) {
     final PageController controller = PageController();
+    int currentPage = 0;
     return StatefulBuilder(
       builder: (context, setState) {
-        int currentPage = 0;
         
-        // Use post-frame callback to safely handle page changes
         WidgetsBinding.instance.addPostFrameCallback((_) {
           controller.addListener(() {
             if (controller.hasClients) {
-              final int page = controller.page?.round() ?? 0;
-              if (page != currentPage) {
-                setState(() {
-                  currentPage = page;
-                });
-              }
+              // Safe access to page
+              try {
+                final int page = controller.page?.round() ?? 0;
+                if (page != currentPage) {
+                  setState(() {
+                    currentPage = page;
+                  });
+                }
+              } catch (_) {}
             }
           });
         });
+
+        void nextPage() {
+          if (controller.hasClients) {
+            final int nextIndex = (currentPage + 1) % images.length;
+            controller.animateToPage(
+              nextIndex,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          }
+        }
+
+        void prevPage() {
+          if (controller.hasClients) {
+            final int prevIndex = (currentPage - 1 + images.length) % images.length;
+            controller.animateToPage(
+              prevIndex,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          }
+        }
 
         return Column(
           children: [
@@ -607,15 +666,56 @@ class ProjectsSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 child: Container(
                   color: const Color(0xFF030014),
-                  child: PageView.builder(
-                    controller: controller,
-                    itemCount: images.length,
-                    itemBuilder: (context, index) {
-                      return Image.asset(
-                        images[index],
-                        fit: BoxFit.contain,
-                      );
-                    },
+                  child: Stack(
+                    children: [
+                      GestureDetector(
+                        onTap: nextPage,
+                        child: PageView.builder(
+                          controller: controller,
+                          itemCount: images.length,
+                          itemBuilder: (context, index) {
+                            return Image.asset(
+                              images[index],
+                              fit: BoxFit.contain,
+                            );
+                          },
+                        ),
+                      ),
+                      Positioned(
+                        left: 10,
+                        top: 0,
+                        bottom: 0,
+                        child: Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black.withValues(alpha: 0.4),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 14),
+                              onPressed: prevPage,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: 10,
+                        top: 0,
+                        bottom: 0,
+                        child: Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black.withValues(alpha: 0.4),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(Icons.arrow_forward_ios_rounded, color: Colors.white, size: 14),
+                              onPressed: nextPage,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

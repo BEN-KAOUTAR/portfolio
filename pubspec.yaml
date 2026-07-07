@@ -67,6 +67,16 @@ flutter:
     - assets/courtkeeper_1.png
     - assets/courtkeeper_2.png
     - assets/courtkeeper_3.png
+    - assets/galerie_logo.png
+    - assets/galerie_1.png
+    - assets/galerie_2.png
+    - assets/galerie_3.png
+    - assets/galerie_4.png
+    - assets/galerie_5.png
+    - assets/galerie_6.png
+    - assets/galerie_7.png
+    - assets/galerie_8.png
+    - assets/galerie_9.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
