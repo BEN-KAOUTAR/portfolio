@@ -49,13 +49,13 @@ class ProjectsSection extends StatelessWidget {
           'CourtKeeper is a modern, native Android application designed to track and manage tennis matches in real-time. It automates all score tracking, handles complex Deuce/Advantage states, and manages sets and tie-breaks. It also supports local match history preservation using Gson serialization and SharedPreferences.',
       'features': [
         'Automatic score calculation following official tennis rules (0, 15, 30, 40).',
-        'Complete management of Deuce and Advantage (AV).',
-        'Automatic Game tracking (victory at 6 with a margin of 2, or tie-break at 7-6/7-5).',
+        'Complete management of Deuce (tie) and Advantage (AD) states.',
+        'Automatic Game tracking (win at 6 with a 2-game margin, or tie-break at 7-6/7-5).',
         'Automatic Set tracking (match won in best of 3 sets).',
         'Dynamic and secure customization of player names via styled dialog boxes.',
-        'Automatic match state persistence to resume after interruption.',
-        'Comprehensive history of matches played with date, scores, and winner (RecyclerView).',
-        'Smooth visual effects and animations (pulse effect on score change, item transitions).',
+        'Automatic current match state persistence to resume after any interruption.',
+        'Comprehensive history of played matches with date, scores, and winner details (RecyclerView).',
+        'Smooth visual effects and animations (pulse effect on score changes, item transitions).',
         'Dark, futuristic theme optimized for perfect readability on the court.'
       ],
       'tag': 'Kotlin',
@@ -87,12 +87,12 @@ class ProjectsSection extends StatelessWidget {
           'Galerie Touristique is a native Android guide app designed for travellers. It serves as an interactive planner allowing users to organize visits, estimate hotel costs in real-time, view weather/ideal visiting times, and get curated AI recommendations (via Gemini) for local hidden gems.',
       'features': [
         'AI Assistance (Gemini): Exclusive tips, best visiting times, and local hidden gems generated for each destination.',
-        'Recent Improvements: Theme bug fixes (invisible text), modern rendering of Pill Indicators (green/gray), and resource cleanup.',
+        'Recent improvements: Complete theme bug fixes (invisible text), modern Pill Indicator rendering (green/gray), and resource cleanup.',
         'Interactive booking system with real-time total price calculation (hotels, guides, and travelers).',
-        'Home screen with dynamic carousel (Top Picks), animated indicators, and complete city list.',
-        'Secure authentication with local preference storage and profile management.',
-        'Manage active, pending, or cancelled trips in \'My Visits\' with easy modification.',
-        'Quick actions: Call/SMS support, sharing, and geolocation on Google Maps.'
+        'Home screen with dynamic carousel (Top Picks), animated indicators, and a complete city list.',
+        'Secure authentication with local preference storage and full profile management.',
+        'Manage active, pending, or cancelled trips in My Visits with easy modification.',
+        'Quick actions: Call/SMS support, content sharing, and geolocation on Google Maps.'
       ],
       'tag': 'Kotlin',
       'color': 0xFF2196F3,
@@ -118,16 +118,16 @@ class ProjectsSection extends StatelessWidget {
         'assets/academic_pro_9.png',
       ],
       'desc':
-          'A mobile and web academic management app dedicated to Digital Hubs. Centralizes grades, attendance, and timetables offline.',
+          'A mobile and web academic management app dedicated to Digital Hubs. Centralizes grades, attendance, and timetables — fully offline.',
       'longDesc':
-          'Academic Pro is a comprehensive, cross-platform academic management system built with Flutter, designed to centralize and digitize all administrative and educational workflows within vocational training centers in Morocco. It replaces scattered Excel sheets and paper forms with a single unified workspace accessible offline on mobile, web, and desktop.\n\nOperating completely offline using a local SQLite database (academic_pro.db, version 31) structured around 13 main tables with a single helper file containing over 3,200 lines of code, the system guarantees high performance and autonomy. It supports three distinct user roles (Educational Director, Trainer, and Student), where the Director acts as the administrator responsible for creating and issuing accounts for trainers and students, managing course schedules, validation logs, exam scheduling, messaging, and real-time alerts.',
+          'Academic Pro is a comprehensive cross-platform academic management system built with Flutter, designed to centralize and digitize all administrative and educational workflows within vocational training centers in Morocco. It replaces scattered Excel sheets and paper forms with a single unified workspace that works completely offline using a local SQLite database.\n\nThe system supports three distinct user roles — Educational Director, Trainer, and Student — where the Director acts as the administrator responsible for creating and managing all accounts, schedules, validation logs, exam scheduling, messaging, and real-time alerts.',
       'features': [
         'Three distinct profiles: Educational Director, Trainer, and Student.',
-        'Trainer and Student account creation managed exclusively by the Director.',
+        'Trainer and Student account creation managed exclusively by the Educational Director.',
         'Comprehensive management of grades, attendance, timetables, and exams.',
         '100% offline functionality powered by a local SQLite database.',
         'Automated generation and printing of PDF documents (transcripts, schedules).',
-        'Interactive dashboard with charts, integrated instant messaging, and notifications.'
+        'Interactive dashboard with charts, integrated instant messaging, and real-time notifications.'
       ],
       'tag': 'Flutter',
       'color': 0xFFEC407A,
@@ -138,25 +138,52 @@ class ProjectsSection extends StatelessWidget {
       'status': 'done',
     },
     {
-      'title': 'iKenas',
-      'emoji': '🏠',
-      'logo': '',
-      'images': <String>[],
+      'title': 'Schoolline (iKenas)',
+      'emoji': '🏫',
+      'logo': 'assets/schoolline_logo.png',
+      'images': [
+        'assets/schoolline_1.png',
+        'assets/schoolline_2.png',
+        'assets/schoolline_3.png',
+        'assets/schoolline_4.png',
+        'assets/schoolline_5.png',
+        'assets/schoolline_6.png',
+        'assets/schoolline_7.png',
+        'assets/schoolline_8.png',
+        'assets/schoolline_9.png',
+        'assets/schoolline_10.png',
+        'assets/schoolline_11.png',
+        'assets/schoolline_12.png',
+        'assets/schoolline_13.png',
+        'assets/schoolline_14.png',
+        'assets/schoolline_15.png',
+        'assets/schoolline_16.png',
+        'assets/schoolline_17.png',
+        'assets/schoolline_18.png',
+        'assets/schoolline_19.png',
+        'assets/schoolline_20.png',
+      ],
       'desc':
-          'A smart home services app connecting users with professional cleaning and household service providers. Features booking, real-time availability, and service history tracking.',
+          'A cross-platform school management app developed during my internship at iKenas, centralizing student data, grades, attendance, and teacher–parent communication.',
       'longDesc':
-          'A mobile service platform connecting users with local home services and maintenance professionals. Features online booking, real-time provider schedules, notification alerts, and booking history.',
+          'Schoolline is a multi-platform mobile school management application developed during my internship at iKenas. Designed to modernize school administrations, it centralizes all communications between the administration, teachers, and parents within one platform.\n\nThe app uses an offline caching system for uninterrupted data access, secure JWT token authentication, and Firebase Cloud Messaging for instant push notifications. It adopts a clean MVVM architecture with the Repository Pattern, using BLoC and Provider for state management. The backend is a Node.js + Express.js REST API backed by MongoDB Atlas and Mongoose, with bcrypt for password encryption and Swagger for API documentation.',
       'features': [
-        'Seamless booking workflow for home cleaning and repairs.',
-        'Interactive provider ratings and availability lists.',
-        'Real-time appointment tracking and booking history.',
-        'Secure billing integrations.'
+        'Multi-role access: Administrator, Teacher, and Parent accounts.',
+        'Real-time academic performance tracking: grades per subject, evolution charts, and class ranking.',
+        'Attendance module with justified/unjustified absence counts and a monthly calendar view.',
+        'Monthly school fee payment tracking with per-month status indicators.',
+        'In-app messaging system with direct and group conversation support.',
+        'Notification center with categorized alerts: Exams, Grades, Homework, and Events.',
+        'Teacher dashboard with class management, grade entry, and a statistics leaderboard.',
+        'Offline data access via local secure storage cache.',
+        'Secure HTTPS/TLS communications with JWT authentication and bcrypt password hashing.',
+        'Real-time push notifications via Firebase Cloud Messaging (FCM).'
       ],
       'tag': 'Flutter',
-      'color': 0xFFE91E63,
-      'tech': ['Flutter', 'Dart', 'Firebase', 'Provider'],
+      'color': 0xFF9C27B0,
+      'tech': ['Flutter', 'Node.js', 'MongoDB', 'BLoC', 'Provider', 'Firebase'],
       'apk': '',
-      'github': 'https://github.com/BEN-KAOUTAR',
+      'github': '',
       'web': '',
       'status': 'done',
     },
@@ -273,7 +300,7 @@ class ProjectsSection extends StatelessWidget {
                                               borderRadius: BorderRadius.circular(16),
                                               boxShadow: [
                                                 BoxShadow(
-                                                  color: accentColor.withValues(alpha: 0.1),
+                                                  color: accentColor.withValues(alpha: 0.3),
                                                   blurRadius: 15,
                                                   spreadRadius: 2,
                                                 )
@@ -283,8 +310,8 @@ class ProjectsSection extends StatelessWidget {
                                               borderRadius: BorderRadius.circular(16),
                                               child: Image.asset(
                                                 project['logo'] as String,
-                                                width: 95,
-                                                height: 95,
+                                                width: 80,
+                                                height: 80,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -410,23 +437,21 @@ class ProjectsSection extends StatelessWidget {
                                           url: project['apk'] as String,
                                           color: accentColor,
                                         ),
-                                      if (!isComingSoon && (project['apk'] as String).isNotEmpty && ((project['web'] as String).isNotEmpty || (project['github'] as String).isNotEmpty))
+                                      if (!isComingSoon && (project['apk'] as String).isNotEmpty)
                                         const SizedBox(width: 10),
                                       if (!isComingSoon && (project['web'] as String).isNotEmpty)
                                         _buildLinkBtn(
                                           icon: Icons.language,
-                                          label: 'Live',
+                                          label: 'Site Web',
                                           url: project['web'] as String,
                                           color: accentColor,
                                           isFa: false,
                                         ),
-                                      if (!isComingSoon && (project['web'] as String).isNotEmpty && (project['github'] as String).isNotEmpty)
-                                        const SizedBox(width: 10),
-                                      if (!isComingSoon && (project['github'] as String).isNotEmpty)
+                                      if (!isComingSoon)
                                         _buildLinkBtn(
                                           icon: FontAwesomeIcons.github,
                                           label: 'GitHub',
-                                          url: project['github'] as String,
+                                          url: 'https://github.com/BEN-KAOUTAR',
                                           color: accentColor,
                                         ),
                                       if (isComingSoon)
@@ -777,11 +802,11 @@ class ProjectsSection extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 12),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     project['logo'] as String,
-                    width: 64,
-                    height: 64,
+                    width: 48,
+                    height: 48,
                     fit: BoxFit.cover,
                   ),
                 ),
