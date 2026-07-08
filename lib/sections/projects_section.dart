@@ -142,26 +142,34 @@ class ProjectsSection extends StatelessWidget {
       'emoji': '🏫',
       'logo': 'assets/schoolline_logo.png',
       'images': [
-        'assets/schoolline_1.png',
-        'assets/schoolline_2.png',
-        'assets/schoolline_3.png',
-        'assets/schoolline_4.png',
-        'assets/schoolline_5.png',
-        'assets/schoolline_6.png',
-        'assets/schoolline_7.png',
-        'assets/schoolline_8.png',
-        'assets/schoolline_9.png',
-        'assets/schoolline_10.png',
-        'assets/schoolline_11.png',
-        'assets/schoolline_12.png',
-        'assets/schoolline_13.png',
-        'assets/schoolline_14.png',
-        'assets/schoolline_15.png',
-        'assets/schoolline_16.png',
+        'assets/schoolline_1.jpeg',
+        'assets/schoolline_2.jpeg',
+        'assets/schoolline_3.jpeg',
+        'assets/schoolline_4.jpeg',
+        'assets/schoolline_5.jpeg',
+        'assets/schoolline_6.jpeg',
+        'assets/schoolline_7.jpeg',
+        'assets/schoolline_8.jpeg',
+        'assets/schoolline_9.jpeg',
+        'assets/schoolline_10.jpeg',
+        'assets/schoolline_11.jpeg',
+        'assets/schoolline_12.jpeg',
+        'assets/schoolline_13.jpeg',
+        'assets/schoolline_14.jpeg',
+        'assets/schoolline_15.jpeg',
+        'assets/schoolline_16.jpeg',
         'assets/schoolline_17.png',
         'assets/schoolline_18.png',
-        'assets/schoolline_19.png',
-        'assets/schoolline_20.png',
+        'assets/schoolline_19.jpeg',
+        'assets/schoolline_20.jpeg',
+        'assets/schoolline_21.jpeg',
+        'assets/schoolline_22.jpeg',
+        'assets/schoolline_23.jpeg',
+        'assets/schoolline_24.jpeg',
+        'assets/schoolline_25.jpeg',
+        'assets/schoolline_26.jpeg',
+        'assets/schoolline_27.jpeg',
+        'assets/schoolline_28.jpeg',
       ],
       'desc':
           'A cross-platform school management app developed during my internship at iKenas, centralizing student data, grades, attendance, and teacher–parent communication.',
@@ -188,26 +196,54 @@ class ProjectsSection extends StatelessWidget {
       'status': 'done',
     },
     {
-      'title': 'Amannet (PFE)',
-      'emoji': '🔐',
-      'logo': '',
-      'images': <String>[],
+      'title': 'AmanNet (PFE)',
+      'emoji': '🛡️',
+      'logo': 'assets/amannet_logo.png',
+      'images': [
+        'assets/amannet_1.png',
+        'assets/amannet_2.png',
+        'assets/amannet_3.png',
+        'assets/amannet_4.png',
+        'assets/amannet_5.png',
+        'assets/amannet_6.png',
+        'assets/amannet_7.png',
+        'assets/amannet_8.png',
+        'assets/amannet_9.png',
+        'assets/amannet_10.png',
+        'assets/amannet_11.png',
+        'assets/amannet_12.png',
+        'assets/amannet_13.png',
+        'assets/amannet_14.png',
+        'assets/amannet_15.png',
+        'assets/amannet_16.png',
+        'assets/amannet_17.png',
+        'assets/amannet_18.png',
+        'assets/amannet_19.png',
+        'assets/amannet_20.png',
+        'assets/amannet_21.png',
+        'assets/amannet_22.png',
+        'assets/amannet_23.png',
+        'assets/amannet_24.png',
+        'assets/amannet_25.png',
+      ],
       'desc':
-          'End-of-study project — A comprehensive trust and security platform. Implements advanced authentication, role-based access control, and secure data management for enterprise use.',
+          'A smart residential community management ecosystem with role-based access control, incident reporting, and real-time tenant-syndic communication.',
       'longDesc':
-          'An end-of-study project (PFE) consisting of a high-security and data integrity platform. It employs state-of-the-art encryption algorithms, role-based authorization rules, and enterprise-grade data management pipelines.',
+          'AmanNet is an intelligent residential management platform developed as my end-of-study graduation project (PFE). It connects residents, property managers (syndic), and guards. The mobile application allows residents to manage access via dynamic QR codes, request visitor entries, view utility charges, and log incidents. A comprehensive web panel lets property managers oversee the community, manage payments, publish announcements, and process emergency SOS alerts.\n\nThe system utilizes a Flutter mobile client built with Clean Architecture and the BLoC pattern. The backend runs on Node.js/Express with TypeScript, storing data on MongoDB Atlas, while Socket.IO handles real-time chats and Firebase manages push alerts.',
       'features': [
-        'Secure user authentication and verification processes.',
-        'Role-Based Access Control (RBAC) permission configuration.',
-        'Cryptographically secured data tables.',
-        'Comprehensive audit logs for system operations.'
+        'Dynamic QR Codes: Instant, secure visitor entry authorization and resident access control.',
+        'Property Management Web Panel: Property managers manage residents, track dues, and publish community news.',
+        'Real-Time Messaging & Notifications: Live tenant-to-manager chat via Socket.IO and push alerts via Firebase (FCM).',
+        'Incident & Payment System: Log neighborhood maintenance reports and monitor monthly fee balances.',
+        'Emergency SOS Alert: Quick emergency trigger notifying nearby guards and the syndic immediately.',
+        'Secure Role-Based Access: Dedicated portals for Managers (Web), Residents (Mobile), and Guards.'
       ],
       'tag': 'Flutter',
-      'color': 0xFF00FFCC,
-      'tech': ['Flutter', 'Dart', 'Firebase', 'Kotlin', 'REST API'],
-      'apk': '',
-      'github': 'https://github.com/BEN-KAOUTAR',
-      'web': '',
+      'color': 0xFF00796B,
+      'tech': ['Flutter', 'Node.js', 'MongoDB', 'BLoC', 'Socket.IO', 'Firebase'],
+      'apk': 'amannet.apk',
+      'github': '',
+      'web': 'https://hiba13434085.github.io/amanNet-web/',
       'status': 'done',
     },
   ];
@@ -233,7 +269,7 @@ class ProjectsSection extends StatelessWidget {
                 crossAxisCount: cols,
                 crossAxisSpacing: 28,
                 mainAxisSpacing: 28,
-                mainAxisExtent: 425,
+                mainAxisExtent: 380,
               ),
               itemCount: _projects.length,
               itemBuilder: (context, index) {
@@ -388,18 +424,16 @@ class ProjectsSection extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                  Expanded(
-                                    child: Text(
-                                      project['desc'] as String,
-                                      maxLines: 4,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                          color: Colors.white54,
-                                          fontSize: 12.5,
-                                          height: 1.6),
-                                    ),
+                                  Text(
+                                    project['desc'] as String,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                        color: Colors.white54,
+                                        fontSize: 12.5,
+                                        height: 1.6),
                                   ),
-                                  const SizedBox(height: 10),
+                                  const SizedBox(height: 12),
                                   // Tech chips
                                   Wrap(
                                     spacing: 5,
@@ -426,7 +460,7 @@ class ProjectsSection extends StatelessWidget {
                                                 ))
                                             .toList(),
                                   ),
-                                  const SizedBox(height: 14),
+                                  const Spacer(),
                                   // ── Action buttons ──────────────────────
                                   Row(
                                     children: [
@@ -437,8 +471,8 @@ class ProjectsSection extends StatelessWidget {
                                           url: project['apk'] as String,
                                           color: accentColor,
                                         ),
-                                      if (!isComingSoon && (project['apk'] as String).isNotEmpty)
-                                        const SizedBox(width: 10),
+                                      if (!isComingSoon && (project['apk'] as String).isNotEmpty && ((project['web'] as String).isNotEmpty || (project['github'] as String).isNotEmpty))
+                                        const SizedBox(width: 8),
                                       if (!isComingSoon && (project['web'] as String).isNotEmpty)
                                         _buildLinkBtn(
                                           icon: Icons.language,
@@ -447,11 +481,13 @@ class ProjectsSection extends StatelessWidget {
                                           color: accentColor,
                                           isFa: false,
                                         ),
-                                      if (!isComingSoon)
+                                      if (!isComingSoon && (project['web'] as String).isNotEmpty && (project['github'] as String).isNotEmpty)
+                                        const SizedBox(width: 8),
+                                      if (!isComingSoon && (project['github'] as String).isNotEmpty)
                                         _buildLinkBtn(
                                           icon: FontAwesomeIcons.github,
                                           label: 'GitHub',
-                                          url: 'https://github.com/BEN-KAOUTAR',
+                                          url: project['github'] as String,
                                           color: accentColor,
                                         ),
                                       if (isComingSoon)
@@ -761,22 +797,52 @@ class ProjectsSection extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(images.length, (index) {
-                final bool isSelected = currentPage == index;
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 250),
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  height: 8,
-                  width: isSelected ? 24 : 8,
-                  decoration: BoxDecoration(
-                    color: isSelected ? accentColor : accentColor.withValues(alpha: 0.3),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                );
-              }),
-            ),
+            if (images.length < 15)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(images.length, (index) {
+                  final bool isSelected = currentPage == index;
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    height: 8,
+                    width: isSelected ? 24 : 8,
+                    decoration: BoxDecoration(
+                      color: isSelected ? accentColor : accentColor.withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  );
+                }),
+              )
+            else
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Row(
+                  children: [
+                    Text(
+                      '${currentPage + 1} / ${images.length}',
+                      style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: LinearProgressIndicator(
+                          value: (currentPage + 1) / images.length,
+                          backgroundColor: accentColor.withValues(alpha: 0.15),
+                          valueColor: AlwaysStoppedAnimation<Color>(accentColor),
+                          minHeight: 5,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
           ],
         );
       },
@@ -911,6 +977,47 @@ class ProjectsSection extends StatelessWidget {
                           ))
                       .toList(),
                 ),
+                if ((project['title'] as String).contains('AmanNet')) ...[
+                  const SizedBox(height: 20),
+                  const Text(
+                    'Demo Accounts (For Testing)',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white70),
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.03),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Web Panel (Syndic/Admin Access):',
+                          style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          '• Email: syndic@amanet.com\n• Password: Syndic@123\n(Access via the "Site Web" link)',
+                          style: TextStyle(color: Colors.white54, fontSize: 11.5, height: 1.5),
+                        ),
+                        const SizedBox(height: 12),
+                        const Text(
+                          'Mobile Application (Resident):',
+                          style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          '• Resident: ahmed@amanet.com (A101) | fatima@amanet.com (A102)\n• Password: Ahmed@123 | Fatima@123\n(Access via the downloaded APK)',
+                          style: TextStyle(color: Colors.white54, fontSize: 11.5, height: 1.5),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ],
             ),
           ),

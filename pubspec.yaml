@@ -64,26 +64,34 @@ flutter:
   assets:
     - assets/profile.png
     - assets/schoolline_logo.png
-    - assets/schoolline_1.png
-    - assets/schoolline_2.png
-    - assets/schoolline_3.png
-    - assets/schoolline_4.png
-    - assets/schoolline_5.png
-    - assets/schoolline_6.png
-    - assets/schoolline_7.png
-    - assets/schoolline_8.png
-    - assets/schoolline_9.png
-    - assets/schoolline_10.png
-    - assets/schoolline_11.png
-    - assets/schoolline_12.png
-    - assets/schoolline_13.png
-    - assets/schoolline_14.png
-    - assets/schoolline_15.png
-    - assets/schoolline_16.png
+    - assets/schoolline_1.jpeg
+    - assets/schoolline_2.jpeg
+    - assets/schoolline_3.jpeg
+    - assets/schoolline_4.jpeg
+    - assets/schoolline_5.jpeg
+    - assets/schoolline_6.jpeg
+    - assets/schoolline_7.jpeg
+    - assets/schoolline_8.jpeg
+    - assets/schoolline_9.jpeg
+    - assets/schoolline_10.jpeg
+    - assets/schoolline_11.jpeg
+    - assets/schoolline_12.jpeg
+    - assets/schoolline_13.jpeg
+    - assets/schoolline_14.jpeg
+    - assets/schoolline_15.jpeg
+    - assets/schoolline_16.jpeg
     - assets/schoolline_17.png
     - assets/schoolline_18.png
-    - assets/schoolline_19.png
-    - assets/schoolline_20.png
+    - assets/schoolline_19.jpeg
+    - assets/schoolline_20.jpeg
+    - assets/schoolline_21.jpeg
+    - assets/schoolline_22.jpeg
+    - assets/schoolline_23.jpeg
+    - assets/schoolline_24.jpeg
+    - assets/schoolline_25.jpeg
+    - assets/schoolline_26.jpeg
+    - assets/schoolline_27.jpeg
+    - assets/schoolline_28.jpeg
     - assets/academic_pro_logo.png
     - assets/academic_pro_1.png
     - assets/academic_pro_2.png
@@ -108,6 +116,32 @@ flutter:
     - assets/galerie_7.png
     - assets/galerie_8.png
     - assets/galerie_9.png
+    - assets/amannet_logo.png
+    - assets/amannet_1.png
+    - assets/amannet_2.png
+    - assets/amannet_3.png
+    - assets/amannet_4.png
+    - assets/amannet_5.png
+    - assets/amannet_6.png
+    - assets/amannet_7.png
+    - assets/amannet_8.png
+    - assets/amannet_9.png
+    - assets/amannet_10.png
+    - assets/amannet_11.png
+    - assets/amannet_12.png
+    - assets/amannet_13.png
+    - assets/amannet_14.png
+    - assets/amannet_15.png
+    - assets/amannet_16.png
+    - assets/amannet_17.png
+    - assets/amannet_18.png
+    - assets/amannet_19.png
+    - assets/amannet_20.png
+    - assets/amannet_21.png
+    - assets/amannet_22.png
+    - assets/amannet_23.png
+    - assets/amannet_24.png
+    - assets/amannet_25.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
