@@ -69,7 +69,9 @@ Widget buildSocialIcon(dynamic icon, String tooltip, String url) {
         textStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
         decoration: BoxDecoration(
           color: const Color(0xFF030014),
-          border: Border.all(color: const Color(0xFF00FFCC)),
+          border: Border.fromBorderSide(
+            BorderSide(color: const Color(0xFF00FFCC)),
+          ),
           borderRadius: BorderRadius.circular(8),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -196,7 +198,10 @@ class HomeSection extends StatelessWidget {
                 return MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
-                    onTap: () => launchUrl(Uri.parse('https://canva.link/pkbbwx03t40nymt')),
+                    onTap: () => launchUrl(
+                      Uri.parse('assets/cv%20kaoutar.pdf'),
+                      mode: LaunchMode.externalApplication,
+                    ),
                     child: AnimatedScale(
                       scale: isHovered ? 1.05 : 1.0,
                       duration: const Duration(milliseconds: 200),
