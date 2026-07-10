@@ -11,29 +11,33 @@ class ProjectsSection extends StatelessWidget {
   // ── Project Data ─────────────────────────────────────────────────────────────
   static const List<Map<String, dynamic>> _projects = [
     {
-      'title': 'CalculateIce',
-      'emoji': '🧊',
-      'logo': '',
-      'images': <String>[],
-      'desc':
-          'An intelligent ice calculation app that helps businesses and users determine the exact quantity of ice needed based on various parameters. Streamlines ordering and reduces waste.',
-      'longDesc':
-          'An intelligent ice calculation app designed to help businesses, event planners, and individual users determine the precise amount of ice required. It calculates quantities based on event duration, ambient temperature, guest count, and specific beverage types to streamline ordering and reduce waste.',
-      'features': [
-        'Intelligent consumption models based on temperature.',
-        'Custom parameters for event duration and guest counts.',
-        'Calculations tailored for different beverage types.',
-        'Clean, user-friendly interface to quickly output estimates.'
+      'title': 'Scientific Calculator',
+      'emoji': '🧮',
+      'logo': 'assets/calculatrice_logo.png',
+      'images': [
+        'assets/calculatrice_1.jpg',
+        'assets/calculatrice_2.jpg',
       ],
-      'tag': 'Flutter',
-      'color': 0xFF00D2FF,
-      'tech': ['Flutter', 'Dart', 'Material 3'],
-      'apk': '',
-      'github': 'https://github.com/BEN-KAOUTAR',
+      'desc':
+          'A native Android scientific calculator app inspired by Casio designs, featuring advanced calculations, implicit multiplication, and a persistent history.',
+      'longDesc':
+          'A modern, native Android scientific calculator that replicates the professional features and aesthetic of Casio calculators. Built using Kotlin and XML layouts, it supports arithmetic operations, trigonometric and logarithmic functions, algebraic powers, and constant values. It features memory storage, implicit multiplication handling, and persistent calculation history using Gson and SharedPreferences.',
+      'features': [
+        'Comprehensive functions: Trigonometrics (sin, cos, tan, inverses in degrees), logarithms (log, ln), exponents, algebraic powers, absolute values, factorials, and constants (π, e).',
+        'Casio-inspired design: Responsive layouts in portrait and landscape with styled, color-coded buttons (cyan functions, dark blue numbers, gold borders, orange delete buttons).',
+        'Implicit multiplication: Naturally parses and evaluates math expressions like "2π" or "5sin(30)" without typing explicit multiplication symbols.',
+        'Memory management: Built-in STO, RCL, M+, and M- commands to easily store and reuse intermediate results.',
+        'Persistent calculation history: View and manage the last 50 calculations, saved and restored across sessions via SharedPreferences and Gson.',
+        'Adaptive layouts: Custom XML grids that auto-adjust dynamically to fit smartphones and tablets in both portrait and landscape orientations.'
+      ],
+      'tag': 'Kotlin',
+      'color': 0xFF5CAFD8,
+      'tech': ['Kotlin', 'Android SDK', 'SharedPreferences', 'Gson', 'XML Layouts'],
+      'apk': 'calculatrice.apk',
+      'github': 'https://github.com/BEN-KAOUTAR/calculatrice',
       'web': '',
-      'status': 'coming_soon',
+      'status': 'done',
     },
-
     {
       'title': 'CourtKeeper (Tennis)',
       'emoji': '🎾',
@@ -609,55 +613,54 @@ class ProjectsSection extends StatelessWidget {
                 children: [
                   // Close Button
                   Positioned(
-                    top: 16,
-                    right: 16,
+                    top: 12,
+                    right: 12,
                     child: IconButton(
                       icon: const Icon(Icons.close, color: Colors.white70, size: 24),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
-                  // Content
+                  // Main Content
                   Padding(
-                    padding: const EdgeInsets.all(28),
+                    padding: const EdgeInsets.fromLTRB(28, 52, 28, 28),
                     child: LayoutBuilder(
                       builder: (context, constraints) {
-                        final isMobile = constraints.maxWidth < 750;
+                        final isMobile = constraints.maxWidth < 600;
                         final double contentHeight = constraints.maxHeight - 20;
 
-                        final widgetList = [
-                          // Left Section (Images or Logo)
-                          if (hasImages)
-                            _buildImageCarousel(imagesList, accentColor)
-                          else
-                            Container(
-                              height: isMobile ? 220 : 350,
-                              decoration: BoxDecoration(
-                                color: accentColor.withValues(alpha: 0.05),
-                                borderRadius: BorderRadius.circular(16),
-                                border: Border.all(color: accentColor.withValues(alpha: 0.15)),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  project['emoji'] as String,
-                                  style: const TextStyle(fontSize: 90),
-                                ),
-                              ),
-                            ),
-                          
-                          if (isMobile) const SizedBox(height: 20),
-
-                          // Right Section (Details)
-                          _buildDetailsPane(context, project, accentColor, isComingSoon, isMobile),
-                        ];
-
                         if (isMobile) {
-                          return SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: widgetList,
-                            ),
+                          // On mobile: image on top, scrollable details below
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (hasImages)
+                                SizedBox(
+                                  height: 240,
+                                  child: _ImageCarousel(images: imagesList, accentColor: accentColor),
+                                )
+                              else
+                                Container(
+                                  height: 160,
+                                  decoration: BoxDecoration(
+                                    color: accentColor.withValues(alpha: 0.05),
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: accentColor.withValues(alpha: 0.15)),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      project['emoji'] as String,
+                                      style: const TextStyle(fontSize: 80),
+                                    ),
+                                  ),
+                                ),
+                              const SizedBox(height: 14),
+                              Expanded(
+                                child: _buildDetailsPane(context, project, accentColor, isComingSoon, isMobile),
+                              ),
+                            ],
                           );
                         } else {
+                          // On desktop: side-by-side layout
                           return Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -665,7 +668,21 @@ class ProjectsSection extends StatelessWidget {
                                 flex: 5,
                                 child: SizedBox(
                                   height: contentHeight,
-                                  child: widgetList[0],
+                                  child: hasImages
+                                      ? _ImageCarousel(images: imagesList, accentColor: accentColor)
+                                      : Container(
+                                          decoration: BoxDecoration(
+                                            color: accentColor.withValues(alpha: 0.05),
+                                            borderRadius: BorderRadius.circular(16),
+                                            border: Border.all(color: accentColor.withValues(alpha: 0.15)),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              project['emoji'] as String,
+                                              style: const TextStyle(fontSize: 90),
+                                            ),
+                                          ),
+                                        ),
                                 ),
                               ),
                               const SizedBox(width: 32),
@@ -673,7 +690,7 @@ class ProjectsSection extends StatelessWidget {
                                 flex: 6,
                                 child: SizedBox(
                                   height: contentHeight,
-                                  child: widgetList[1],
+                                  child: _buildDetailsPane(context, project, accentColor, isComingSoon, isMobile),
                                 ),
                               ),
                             ],
@@ -691,163 +708,7 @@ class ProjectsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildImageCarousel(List<String> images, Color accentColor) {
-    final PageController controller = PageController();
-    int currentPage = 0;
-    return StatefulBuilder(
-      builder: (context, setState) {
-        
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          controller.addListener(() {
-            if (controller.hasClients) {
-              // Safe access to page
-              try {
-                final int page = controller.page?.round() ?? 0;
-                if (page != currentPage) {
-                  setState(() {
-                    currentPage = page;
-                  });
-                }
-              } catch (_) {}
-            }
-          });
-        });
-
-        void nextPage() {
-          if (controller.hasClients) {
-            final int nextIndex = (currentPage + 1) % images.length;
-            controller.animateToPage(
-              nextIndex,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
-          }
-        }
-
-        void prevPage() {
-          if (controller.hasClients) {
-            final int prevIndex = (currentPage - 1 + images.length) % images.length;
-            controller.animateToPage(
-              prevIndex,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
-          }
-        }
-
-        return Column(
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  color: const Color(0xFF030014),
-                  child: Stack(
-                    children: [
-                      GestureDetector(
-                        onTap: nextPage,
-                        child: PageView.builder(
-                          controller: controller,
-                          itemCount: images.length,
-                          itemBuilder: (context, index) {
-                            return Image.asset(
-                              images[index],
-                              fit: BoxFit.contain,
-                            );
-                          },
-                        ),
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 0,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.black.withValues(alpha: 0.4),
-                            ),
-                            child: IconButton(
-                              icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 14),
-                              onPressed: prevPage,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 10,
-                        top: 0,
-                        bottom: 0,
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.black.withValues(alpha: 0.4),
-                            ),
-                            child: IconButton(
-                              icon: const Icon(Icons.arrow_forward_ios_rounded, color: Colors.white, size: 14),
-                              onPressed: nextPage,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            if (images.length < 15)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(images.length, (index) {
-                  final bool isSelected = currentPage == index;
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 250),
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    height: 8,
-                    width: isSelected ? 24 : 8,
-                    decoration: BoxDecoration(
-                      color: isSelected ? accentColor : accentColor.withValues(alpha: 0.3),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                  );
-                }),
-              )
-            else
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                child: Row(
-                  children: [
-                    Text(
-                      '${currentPage + 1} / ${images.length}',
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.2,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: LinearProgressIndicator(
-                          value: (currentPage + 1) / images.length,
-                          backgroundColor: accentColor.withValues(alpha: 0.15),
-                          valueColor: AlwaysStoppedAnimation<Color>(accentColor),
-                          minHeight: 5,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-          ],
-        );
-      },
-    );
-  }
+  // carousel is now handled by _ImageCarousel StatefulWidget below
 
   Widget _buildDetailsPane(
     BuildContext context,
@@ -1101,6 +962,185 @@ class ProjectsSection extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+// ── Standalone image carousel widget (fixes mouse_tracker assertion) ─────────
+class _ImageCarousel extends StatefulWidget {
+  final List<String> images;
+  final Color accentColor;
+  const _ImageCarousel({required this.images, required this.accentColor});
+
+  @override
+  State<_ImageCarousel> createState() => _ImageCarouselState();
+}
+
+class _ImageCarouselState extends State<_ImageCarousel> {
+  late final PageController _controller;
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController();
+    _controller.addListener(_onPageChange);
+  }
+
+  void _onPageChange() {
+    if (_controller.hasClients) {
+      final int page = _controller.page?.round() ?? 0;
+      if (page != _currentPage) {
+        setState(() => _currentPage = page);
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onPageChange);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _next() {
+    if (_controller.hasClients) {
+      _controller.animateToPage(
+        (_currentPage + 1) % widget.images.length,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _prev() {
+    if (_controller.hasClients) {
+      _controller.animateToPage(
+        (_currentPage - 1 + widget.images.length) % widget.images.length,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Color accent = widget.accentColor;
+    final bool manyImages = widget.images.length >= 15;
+
+    return Column(
+      children: [
+        Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Container(
+              color: const Color(0xFF030014),
+              child: Stack(
+                children: [
+                  GestureDetector(
+                    onTap: _next,
+                    child: PageView.builder(
+                      controller: _controller,
+                      itemCount: widget.images.length,
+                      itemBuilder: (context, index) => Image.asset(
+                        widget.images[index],
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  // Left arrow
+                  Positioned(
+                    left: 8,
+                    top: 0,
+                    bottom: 0,
+                    child: Center(
+                      child: Material(
+                        color: Colors.black.withValues(alpha: 0.4),
+                        shape: const CircleBorder(),
+                        child: InkWell(
+                          customBorder: const CircleBorder(),
+                          onTap: _prev,
+                          child: const Padding(
+                            padding: EdgeInsets.all(6),
+                            child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 14),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // Right arrow
+                  Positioned(
+                    right: 8,
+                    top: 0,
+                    bottom: 0,
+                    child: Center(
+                      child: Material(
+                        color: Colors.black.withValues(alpha: 0.4),
+                        shape: const CircleBorder(),
+                        child: InkWell(
+                          customBorder: const CircleBorder(),
+                          onTap: _next,
+                          child: const Padding(
+                            padding: EdgeInsets.all(6),
+                            child: Icon(Icons.arrow_forward_ios_rounded, color: Colors.white, size: 14),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        if (!manyImages)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(widget.images.length, (index) {
+              final bool isSelected = _currentPage == index;
+              return AnimatedContainer(
+                duration: const Duration(milliseconds: 250),
+                margin: const EdgeInsets.symmetric(horizontal: 3),
+                height: 7,
+                width: isSelected ? 20 : 7,
+                decoration: BoxDecoration(
+                  color: isSelected ? accent : accent.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              );
+            }),
+          )
+        else
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Row(
+              children: [
+                Text(
+                  '${_currentPage + 1} / ${widget.images.length}',
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: LinearProgressIndicator(
+                      value: (_currentPage + 1) / widget.images.length,
+                      backgroundColor: accent.withValues(alpha: 0.15),
+                      valueColor: AlwaysStoppedAnimation<Color>(accent),
+                      minHeight: 5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
     );
   }
 }

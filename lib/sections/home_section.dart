@@ -39,9 +39,9 @@ class HeroProfileImage extends StatelessWidget {
               padding: const EdgeInsets.all(6),
               child: ClipOval(
                 child: Image.asset(
-                  'assets/profile.png',
+                  'assets/profile.jpeg',
                   fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,
+                  alignment: const Alignment(0.0, -0.3),
                   errorBuilder: (context, error, stackTrace) {
                     return Container(
                       color: const Color(0xFF0D0A24),
