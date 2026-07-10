@@ -41,7 +41,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Web App
-        run: flutter build web --base-href "/portfolio/"
+        run: flutter build web --base-href "/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
