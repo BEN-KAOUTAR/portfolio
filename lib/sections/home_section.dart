@@ -199,7 +199,7 @@ class HomeSection extends StatelessWidget {
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
                     onTap: () => launchUrl(
-                      Uri.parse('assets/cv%20kaoutar.pdf'),
+                      Uri.parse('https://kaoutar-dev.tech/assets/cv.pdf'),
                       mode: LaunchMode.externalApplication,
                     ),
                     child: AnimatedScale(

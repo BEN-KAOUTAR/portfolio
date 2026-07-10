@@ -146,7 +146,7 @@ flutter:
     - assets/calculatrice_logo.png
     - assets/calculatrice_1.jpg
     - assets/calculatrice_2.jpg
-    - assets/cv kaoutar.pdf
+    - assets/cv.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
