@@ -43,7 +43,7 @@ jobs:
       - name: Build Web App
         run: |
           flutter build web --base-href "/"
-          cp assets/cv.pdf build/web/assets/cv.pdf
+          cp assets/kaoutar.pdf build/web/assets/kaoutar.pdf
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
